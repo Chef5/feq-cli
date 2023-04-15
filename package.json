@@ -1,0 +1,30 @@
+{
+  "name": "feq-cli",
+  "version": "0.0.0",
+  "description": "Front End Questions cli",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "bin": {
+    "feq": "./bin/index.js"
+  },
+  "keywords": [
+    "Front End",
+    "frontend",
+    "interview",
+    "interview questions",
+    "feq",
+    "questions",
+    "front end"
+  ],
+  "author": "Chef5",
+  "license": "ISC",
+  "dependencies": {
+    "chalk": "^4.1.0",
+    "clear": "^0.1.0",
+    "commander": "^9.4.1",
+    "figlet": "^1.5.2",
+    "inquirer": "^8.2.5"
+  }
+}
