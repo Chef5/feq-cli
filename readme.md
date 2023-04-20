@@ -8,6 +8,12 @@ Front End Questions cli
 
 前端面试问题命令行工具，随机来一题考考自己
 
+## install
+
+``` sh
+npm install -g feq-cli
+```
+
 ## Usage
 
 ``` sh
