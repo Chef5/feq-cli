@@ -1,6 +1,6 @@
 {
   "name": "feq-cli",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Front End Questions cli",
   "main": "index.js",
   "scripts": {
@@ -25,6 +25,8 @@
     "clear": "^0.1.0",
     "commander": "^9.4.1",
     "figlet": "^1.5.2",
-    "inquirer": "^8.2.5"
+    "inquirer": "^8.2.5",
+    "node-fetch": "^2.6.9",
+    "query-params": "0.0.1"
   }
 }

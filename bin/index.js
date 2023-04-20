@@ -1,14 +1,13 @@
 #!/usr/bin/env node
-// 包信息
 const package = require('../package');
-// 核心处理命令行
 const program = require('commander');
-// 美化终端字符显示
 const chalk = require("chalk");
-// 与用户交互
 const inquirer = require('inquirer');
-// loading模块
 const ora = require('ora');
+const request = require('./request');
+const libs = require('./libs');
+
+const display = console.log;
 
 const verStr = [
     `    ___                          ___           `,
@@ -26,13 +25,54 @@ const verStr = [
     `version: ${chalk.green(package.version)}`
   ].join('\n')
 
-program.version(verStr,'-V,--version')
-
 program
-  .usage('[cmd] <options>')
-  .arguments('<cmd> [env]')
-  .action((cmd, params)=>{
-    
-  })
+  .name('feq')
+  .usage('[command]')
+  .description(`${package.description}`)
+  .helpOption('-h, --help', '显示帮助')
+  .addHelpCommand('help [command]', '显示帮助')
+  .addHelpText('after', `\nExamples: 
+  feq             随机一题
+  feq -t js       随机js类型题目`)
+  .version(verStr, '-V,--version', '查看版本')
 
-program.parse(process.argv);
+program.command('r', { isDefault: true })
+  .description('random 随机一题(默认)')
+  .option('-h, --help', '出题帮助')
+  .option('-t, --type <char>', '类型', 'random')
+  .action(async (options, r) => {
+    const { help, type} = options;
+    if (help) {
+      return await libs.showTypeMenu();
+    }
+    const question = await request.getQuestion(type);
+    libs.showQuestion(question);
+  });
+
+program.command('q')
+  .description('question 查看题目')
+  .argument('<id>', '题目id')
+  .action(async (id) => {
+    if (!libs.checkId(id)) {
+      return display(libs.errorMessage.idError);
+    }
+    const question = await request.getQuestionById(Number(id));
+    libs.showQuestion(question);
+  });
+
+program.command('a')
+  .description('answer 查看答案')
+  .argument('<id>', '题目id')
+  .action(async (id) => {
+    const question = await request.getAnswerById(id);
+    libs.showAnswer(question);
+  });
+
+
+program.command('type')
+  .description('显示类型列表')
+  .action(async () => {
+    await libs.showTypeMenu();
+  });
+
+program.parse();
