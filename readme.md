@@ -8,7 +8,7 @@ Front End Questions cli
 
 前端面试问题命令行工具，随机来一题考考自己
 
-## install
+## Install
 
 ``` sh
 npm install -g feq-cli
@@ -17,11 +17,11 @@ npm install -g feq-cli
 ## Usage
 
 ``` sh
-  feq  r [options]     random 随机一题(默认)
-  feq  q <id>          question 查看题目
-  feq  a <id>          answer 查看答案
-  feq  type            显示类型列表
-  feq  help [command]  显示帮助
+feq  r [options]     random 随机一题(默认)
+feq  q <id>          question 查看题目
+feq  a <id>          answer 查看答案
+feq  type            显示类型列表
+feq  help [command]  显示帮助
 ```
 
 ## Examples
@@ -31,7 +31,7 @@ npm install -g feq-cli
   command:
 
   ``` sh
-    feq
+  feq
   ```
 
   response:
@@ -51,7 +51,7 @@ npm install -g feq-cli
   command:
 
   ``` sh
-    feq -t react
+  feq -t react
   ```
 
   response:
