@@ -1,6 +1,6 @@
 {
   "name": "feq-cli",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Front End Questions cli",
   "main": "index.js",
   "scripts": {
@@ -19,6 +19,14 @@
     "front end"
   ],
   "author": "Chef5",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Chef5/feq-cli.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Chef5/feq-cli/issues"
+  },
+  "homepage": "https://github.com/Chef5/feq-cli#readme",
   "license": "ISC",
   "dependencies": {
     "chalk": "^4.1.0",
